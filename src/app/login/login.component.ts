@@ -19,7 +19,7 @@ export class LoginComponent {
   login(): void {
     this._loadingService.register();
     setTimeout(() => {
-      this._router.navigate(['/main']);
+      this._router.navigate(['/portal']);
       this._loadingService.resolve();
     }, 2000);
   }

@@ -26,7 +26,8 @@
       ],
       "scripts": [
         "../node_modules/hammerjs/hammer.min.js",
-        "../node_modules/showdown/dist/showdown.js"
+        "../node_modules/showdown/dist/showdown.js",
+        "../node_modules/flexibility/flexibility.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -60,7 +61,7 @@
     "styleExt": "scss",
     "serve": {
         "port": 4200,
-        "host": "localhost"
+        "host": "0.0.0.0"
     }
   }
 }
