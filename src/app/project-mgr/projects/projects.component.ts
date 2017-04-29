@@ -18,8 +18,8 @@ export class ProjectComponent implements AfterViewInit {
   columns: any[] = [
     { name: 'icon',  label: '' },
     { name: 'name',  label: 'Project Name', sortable: true },
-    { name: 'isActive', label: 'Active' },
-    { name: 'isPublic', label: 'Public' },
+    { name: 'isActive', label: 'Active Project' },
+    { name: 'isPublic', label: 'Public Project' },
     { name: 'description', label: 'Description' },
     { name: 'id', label: 'Action' }
   ];
