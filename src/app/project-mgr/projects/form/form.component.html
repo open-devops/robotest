@@ -1,0 +1,51 @@
+<md-card tdMediaToggle="gt-xs" [mediaClasses]="['push']">
+  <md-card-title>
+    Project Form
+  </md-card-title>
+  <md-divider></md-divider>
+  <md-card-content class="push-bottom-none">
+    <form #projectForm="ngForm">
+      <div layout="row">
+        <md-input-container flex>
+          <input mdInput
+                  #nameElement
+                  #nameControl="ngModel"
+                  type="text"
+                  placeholder="Project Name"
+                  [(ngModel)]="name"
+                  name="name"
+                  maxlength="64"
+                  required>
+          <md-hint align="start">
+            <span [hidden]="nameControl.pristine || !nameControl.errors?.required" class="tc-red-600">Required</span>
+          </md-hint>
+          <md-hint align="end">{{nameElement.value.length}} / 64</md-hint>
+        </md-input-container>
+      </div>
+      <div layout="row" class="push-top">
+        <md-input-container flex>
+          <input mdInput
+                  #descriptionElement
+                  #descriptionControl="ngModel"
+                  type="text"
+                  placeholder="Description"
+                  [(ngModel)]="description"
+                  name="description"
+                  maxlength="256">
+          <md-hint align="end">{{descriptionElement.value.length}} / 256</md-hint>
+        </md-input-container>
+      </div>
+      <div layout="row">
+        <md-slide-toggle [(ngModel)]="isActive" name="isActive">Active Project</md-slide-toggle>
+      </div>
+      <div layout="row">
+        <md-slide-toggle [(ngModel)]="isPublic" name="isPublic">Pubulic Project</md-slide-toggle>
+      </div>
+    </form>
+    </md-card-content>
+    <md-divider></md-divider>
+    <md-card-actions>
+      <button md-button [disabled]="!projectForm.valid" color="primary" (click)="save()">SAVE</button>
+      <button md-button (click)="goBack()">CANCEL</button>
+    </md-card-actions>
+  </md-card>

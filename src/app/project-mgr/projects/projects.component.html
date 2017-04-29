@@ -1,0 +1,62 @@
+<div class="md-content" class="inset">
+    <div layout="column" layout-gt-sm="row">
+        <div flex-gt-sm="100">
+            <md-card>
+                <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
+                    <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
+                        <span class="md-title">Project List</span>
+                    </span>
+                    <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm" placeholder="Search here" (searchDebounce)="search($event)" flex>
+                    </td-search-box>
+                </div>
+                <md-divider></md-divider>
+                <td-data-table
+                    #dataTable
+                    [data]="filteredData"
+                    [columns]="columns"
+                    [sortBy]="sortBy"
+                    [sortOrder]="sortOrder"
+                    (sortChange)="sort($event)">
+                  <ng-template tdDataTableTemplate="icon" let-value="value">
+                    <div layout="row">
+                      <md-icon>{{value}}</md-icon>
+                    </div>
+                  </ng-template>
+                  <ng-template tdDataTableTemplate="id" let-value="value">
+                    <div layout="row">
+                      <button md-icon-button color="primary" [routerLink]="['/portal/project-mgr/projects/' + value + '/view']">
+                        <md-icon>visibility</md-icon>
+                      </button>
+                      <button md-icon-button color="primary" [routerLink]="['/portal/project-mgr/projects/' + value + '/edit']">
+                        <md-icon>edit</md-icon>
+                      </button>
+                      <button md-icon-button color="primary" (click)="openConfirm(value)">
+                        <md-icon>delete</md-icon>
+                      </button>
+                    </div>
+                  </ng-template>
+                  <ng-template tdDataTableTemplate="isActive" let-value="value">
+                    <div *ngIf="value" layout="row">
+                      <md-icon>check</md-icon>
+                    </div>
+                  </ng-template>
+                  <ng-template tdDataTableTemplate="isPublic" let-value="value">
+                    <div *ngIf="value" layout="row">
+                      <md-icon>check</md-icon>
+                    </div>
+                  </ng-template>
+                </td-data-table>
+                <div class="md-padding" *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
+                    <h3>No results to display.</h3>
+                </div>
+                <td-paging-bar #pagingBar [pageSizes]="[5, 10, 15, 20]" [total]="filteredTotal" (change)="page($event)">
+                    <span td-paging-bar-label hide-xs>Row per page:</span>
+                    {{pagingBar.range}} <span hide-xs>of {{pagingBar.total}}</span>
+                </td-paging-bar>
+            </md-card>
+        </div>
+    </div>
+</div>
+<a md-fab color="accent" class="mat-fab-bottom-right fixed" [routerLink]="['add']">
+  <md-icon>add</md-icon>
+</a>

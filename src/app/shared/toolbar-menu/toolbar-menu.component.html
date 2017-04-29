@@ -1,0 +1,29 @@
+<md-menu #languageMenu="mdMenu" xPosition="before" yPosition="below" [overlapTrigger]="false">
+  <button md-menu-item> English </button>
+  <button md-menu-item> 中文（简体） </button>
+  <button md-menu-item> 日本語 </button>
+</md-menu>
+<md-menu #accountMenu="mdMenu" xPosition="before" yPosition="below" [overlapTrigger]="false">
+  <button md-menu-item>
+    <md-icon>settings</md-icon>
+    <span> Settings </span>
+  </button>
+  <button md-menu-item>
+    <md-icon>vpn_key</md-icon>
+    <span> Password </span>
+  </button>
+  <button md-menu-item>
+    <md-icon>cloud</md-icon>
+    <span> Sessions </span>
+  </button>
+  <button md-menu-item>
+    <md-icon>exit_to_app</md-icon>
+    <span> Sign Out </span>
+  </button>
+</md-menu>
+<button md-icon-button [mdMenuTriggerFor]="languageMenu">
+  <md-icon>language</md-icon>
+</button>
+<button md-icon-button [mdMenuTriggerFor]="accountMenu">
+  <md-icon>person</md-icon>
+</button>

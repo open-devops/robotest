@@ -1,0 +1,16 @@
+<td-layout #layout>
+  <td-navigation-drawer sidenavTitle="Robotest" navigationRoute="['/portal']" name="<Robot Admin>" [email]="currentProjectName">
+    <md-nav-list>
+      <ng-template let-item let-last="last" ngFor [ngForOf]="routes">
+        <a md-list-item [routerLink]="[item.route]" (click)="layout.close()"><md-icon>{{item.icon}}</md-icon>{{item.title}}</a>
+      </ng-template>
+    </md-nav-list>
+    <md-nav-list td-navigation-drawer-menu>
+      <h3 md-subheader>Switch Project</h3>
+      <ng-template let-item let-last="last" ngFor [ngForOf]="projects">
+        <a md-list-item (click)="layout.close(); setCurrentProject(item.name)"><md-icon>{{item.icon}}</md-icon>{{item.name}}</a>
+      </ng-template>
+    </md-nav-list>
+  </td-navigation-drawer>
+  <router-outlet></router-outlet>
+</td-layout>

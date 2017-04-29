@@ -1,0 +1,45 @@
+[
+  {
+    "id": "1",
+    "icon": "library_add",
+    "name": "Default Test Project",
+    "isActive": true,
+    "isPublic": true,
+    "description": "Auto created default test project for current Tenant."
+  },{
+    "id": "2",
+    "icon": "settings",
+    "name": "Pipeline Engine Test Project",
+    "isActive": true,
+    "isPublic": false,
+    "description": "Test Suite for Pipeline Engine App."
+  },{
+    "id": "3",
+    "icon": "widgets",
+    "name": "Pipeline Designer Test Project",
+    "isActive": true,
+    "isPublic": false,
+    "description": "Test Suite for Pipeline Designer App."
+  },{
+    "id": "4",
+    "icon": "power_settings_new",
+    "name": "Pipeline Controller Test Project",
+    "isActive": true,
+    "isPublic": false,
+    "description": "Test Suite for Pipeline Controller App."
+  },{
+    "id": "5",
+    "icon": "dashboard",
+    "name": "Pipeline Dashboard Test Project",
+    "isActive": true,
+    "isPublic": false,
+    "description": "Test Suite for Pipeline Dashboard App."
+  },{
+    "id": "6",
+    "icon": "timeline",
+    "name": "Pipeline Metrics Test Project",
+    "isActive": true,
+    "isPublic": false,
+    "description": "Test Suite for Pipeline Metrics App."
+  }
+]
